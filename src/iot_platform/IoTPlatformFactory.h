@@ -5,6 +5,7 @@
 
 CLASS(IoTPlatformFactory) {
     IoTPlatform* (*create)(IoTPlatformFactory* t, const char* type);
+    void (*destory)(IoTPlatformFactory*t, IoTPlatform* iot_platform, const char* type);
 };
 
 #endif /* __IOT_PLATFORM_FACTORY_H__ */
