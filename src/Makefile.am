@@ -1,3 +1,5 @@
+AUTOMAKE_OPTIONS = subdir-objects
+
 AM_CPPFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\""$(localedir)"\" \
 	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
@@ -18,7 +20,9 @@ libdevice_framework_for_c_la_includedir = $(includedir)/device_framework_for_c
 lib_LTLIBRARIES = libdevice_framework_for_c.la
 
 libdevice_framework_for_c_la_SOURCES = \
-	main.c
+	main.c \
+	iot_platform/IoTPlatform.c \
+	iot_platform/AWSIoTPlatform.c
 
 libdevice_framework_for_c_la_LIBADD = $(DEPENDENCIES_LIBS)
 endif
@@ -26,7 +30,9 @@ endif
 bin_PROGRAMS = device_framework_for_c
 
 device_framework_for_c_SOURCES = \
-	main.c
+	main.c \
+	iot_platform/IoTPlatform.c \
+	iot_platform/AWSIoTPlatform.c
 
 device_framework_for_c_CFLAGS = $(AM_CFLAGS)
 device_framework_for_c_LDFLAGS = $(AM_LDFLAGS)
