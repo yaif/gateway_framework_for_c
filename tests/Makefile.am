@@ -1,7 +1,7 @@
 noinst_PROGRAMS = $(TEST_PROGS)
 
 PRODUCTION_CODE_INCLUDES = -I$(top_srcdir)/src
-PRODUCTION_CODE_LIBS = $(top_builddir)/src/libdevice_framework_for_c.la
+PRODUCTION_CODE_LIBS = $(top_builddir)/src/libgateway_framework_for_c.la
 
 AM_CPPFLAGS = \
 	$(CUNIT_CFLAGS)\
@@ -13,10 +13,10 @@ AM_CFLAGS =	-Werror\
 
 AM_CXXFLAGS = $(AM_CFLAGS)
 
-TEST_PROGS = device_framework_for_c_tests
+TEST_PROGS = gateway_framework_for_c_tests
 
-device_framework_for_c_tests_SOURCES = device_framework_for_c_tests.c
-device_framework_for_c_tests_LDADD = $(CUNIT_LIBS)\
+gateway_framework_for_c_tests_SOURCES = gateway_framework_for_c_tests.c
+gateway_framework_for_c_tests_LDADD = $(CUNIT_LIBS)\
 	$(PRODUCTION_CODE_LIBS)
 
 check_PROGRAMS = $(TEST_PROGS)

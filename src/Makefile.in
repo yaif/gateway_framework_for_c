@@ -89,7 +89,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = device_framework_for_c$(EXEEXT)
+bin_PROGRAMS = gateway_framework_for_c$(EXEEXT)
 @ENABLE_COVERAGE_TRUE@@ENABLE_TESTS_TRUE@am__append_1 = \
 @ENABLE_COVERAGE_TRUE@@ENABLE_TESTS_TRUE@	-fprofile-arcs\
 @ENABLE_COVERAGE_TRUE@@ENABLE_TESTS_TRUE@	-ftest-coverage
@@ -140,33 +140,37 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 am__DEPENDENCIES_1 =
-@ENABLE_TESTS_TRUE@libdevice_framework_for_c_la_DEPENDENCIES =  \
+@ENABLE_TESTS_TRUE@libgateway_framework_for_c_la_DEPENDENCIES =  \
 @ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_1)
-am__libdevice_framework_for_c_la_SOURCES_DIST = main.c \
-	iot_platform/IoTPlatform.c iot_platform/AWSIoTPlatform.c
+am__libgateway_framework_for_c_la_SOURCES_DIST = main.c \
+	iot_platform/IoTPlatform.c iot_platform/AWSIoTPlatform.c \
+	iot_platform/IoTPlatformFactory.c
 am__dirstamp = $(am__leading_dot)dirstamp
-@ENABLE_TESTS_TRUE@am_libdevice_framework_for_c_la_OBJECTS = main.lo \
+@ENABLE_TESTS_TRUE@am_libgateway_framework_for_c_la_OBJECTS = main.lo \
 @ENABLE_TESTS_TRUE@	iot_platform/IoTPlatform.lo \
-@ENABLE_TESTS_TRUE@	iot_platform/AWSIoTPlatform.lo
-libdevice_framework_for_c_la_OBJECTS =  \
-	$(am_libdevice_framework_for_c_la_OBJECTS)
+@ENABLE_TESTS_TRUE@	iot_platform/AWSIoTPlatform.lo \
+@ENABLE_TESTS_TRUE@	iot_platform/IoTPlatformFactory.lo
+libgateway_framework_for_c_la_OBJECTS =  \
+	$(am_libgateway_framework_for_c_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-@ENABLE_TESTS_TRUE@am_libdevice_framework_for_c_la_rpath = -rpath \
+@ENABLE_TESTS_TRUE@am_libgateway_framework_for_c_la_rpath = -rpath \
 @ENABLE_TESTS_TRUE@	$(libdir)
 PROGRAMS = $(bin_PROGRAMS)
-am_device_framework_for_c_OBJECTS =  \
-	device_framework_for_c-main.$(OBJEXT) \
-	iot_platform/device_framework_for_c-IoTPlatform.$(OBJEXT) \
-	iot_platform/device_framework_for_c-AWSIoTPlatform.$(OBJEXT)
-device_framework_for_c_OBJECTS = $(am_device_framework_for_c_OBJECTS)
-device_framework_for_c_DEPENDENCIES =
-device_framework_for_c_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+am_gateway_framework_for_c_OBJECTS =  \
+	gateway_framework_for_c-main.$(OBJEXT) \
+	iot_platform/gateway_framework_for_c-IoTPlatform.$(OBJEXT) \
+	iot_platform/gateway_framework_for_c-AWSIoTPlatform.$(OBJEXT) \
+	iot_platform/gateway_framework_for_c-IoTPlatformFactory.$(OBJEXT)
+gateway_framework_for_c_OBJECTS =  \
+	$(am_gateway_framework_for_c_OBJECTS)
+gateway_framework_for_c_DEPENDENCIES =
+gateway_framework_for_c_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(device_framework_for_c_CFLAGS) $(CFLAGS) \
-	$(device_framework_for_c_LDFLAGS) $(LDFLAGS) -o $@
+	$(gateway_framework_for_c_CFLAGS) $(CFLAGS) \
+	$(gateway_framework_for_c_LDFLAGS) $(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -201,10 +205,10 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libdevice_framework_for_c_la_SOURCES) \
-	$(device_framework_for_c_SOURCES)
-DIST_SOURCES = $(am__libdevice_framework_for_c_la_SOURCES_DIST) \
-	$(device_framework_for_c_SOURCES)
+SOURCES = $(libgateway_framework_for_c_la_SOURCES) \
+	$(gateway_framework_for_c_SOURCES)
+DIST_SOURCES = $(am__libgateway_framework_for_c_la_SOURCES_DIST) \
+	$(gateway_framework_for_c_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -361,23 +365,25 @@ AM_CPPFLAGS = \
 
 AM_CFLAGS = -Wextra $(am__append_1)
 AM_CXXFLAGS = $(AM_CFLAGS)
-@ENABLE_TESTS_TRUE@libdevice_framework_for_c_la_includedir = $(includedir)/device_framework_for_c
-@ENABLE_TESTS_TRUE@lib_LTLIBRARIES = libdevice_framework_for_c.la
-@ENABLE_TESTS_TRUE@libdevice_framework_for_c_la_SOURCES = \
+@ENABLE_TESTS_TRUE@libgateway_framework_for_c_la_includedir = $(includedir)/gateway_framework_for_c
+@ENABLE_TESTS_TRUE@lib_LTLIBRARIES = libgateway_framework_for_c.la
+@ENABLE_TESTS_TRUE@libgateway_framework_for_c_la_SOURCES = \
 @ENABLE_TESTS_TRUE@	main.c \
 @ENABLE_TESTS_TRUE@	iot_platform/IoTPlatform.c \
-@ENABLE_TESTS_TRUE@	iot_platform/AWSIoTPlatform.c
+@ENABLE_TESTS_TRUE@	iot_platform/AWSIoTPlatform.c \
+@ENABLE_TESTS_TRUE@	iot_platform/IoTPlatformFactory.c
 
-@ENABLE_TESTS_TRUE@libdevice_framework_for_c_la_LIBADD =  \
+@ENABLE_TESTS_TRUE@libgateway_framework_for_c_la_LIBADD =  \
 @ENABLE_TESTS_TRUE@	$(DEPENDENCIES_LIBS) $(am__append_2)
-device_framework_for_c_SOURCES = \
+gateway_framework_for_c_SOURCES = \
 	main.c \
 	iot_platform/IoTPlatform.c \
-	iot_platform/AWSIoTPlatform.c
+	iot_platform/AWSIoTPlatform.c \
+	iot_platform/IoTPlatformFactory.c
 
-device_framework_for_c_CFLAGS = $(AM_CFLAGS)
-device_framework_for_c_LDFLAGS = $(AM_LDFLAGS)
-device_framework_for_c_LDADD = $(DEPENDENCIES_LIBS)
+gateway_framework_for_c_CFLAGS = $(AM_CFLAGS)
+gateway_framework_for_c_LDFLAGS = $(AM_LDFLAGS)
+gateway_framework_for_c_LDADD = $(DEPENDENCIES_LIBS)
 all: all-am
 
 .SUFFIXES:
@@ -456,9 +462,11 @@ iot_platform/IoTPlatform.lo: iot_platform/$(am__dirstamp) \
 	iot_platform/$(DEPDIR)/$(am__dirstamp)
 iot_platform/AWSIoTPlatform.lo: iot_platform/$(am__dirstamp) \
 	iot_platform/$(DEPDIR)/$(am__dirstamp)
+iot_platform/IoTPlatformFactory.lo: iot_platform/$(am__dirstamp) \
+	iot_platform/$(DEPDIR)/$(am__dirstamp)
 
-libdevice_framework_for_c.la: $(libdevice_framework_for_c_la_OBJECTS) $(libdevice_framework_for_c_la_DEPENDENCIES) $(EXTRA_libdevice_framework_for_c_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(LINK) $(am_libdevice_framework_for_c_la_rpath) $(libdevice_framework_for_c_la_OBJECTS) $(libdevice_framework_for_c_la_LIBADD) $(LIBS)
+libgateway_framework_for_c.la: $(libgateway_framework_for_c_la_OBJECTS) $(libgateway_framework_for_c_la_DEPENDENCIES) $(EXTRA_libgateway_framework_for_c_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(LINK) $(am_libgateway_framework_for_c_la_rpath) $(libgateway_framework_for_c_la_OBJECTS) $(libgateway_framework_for_c_la_LIBADD) $(LIBS)
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	@list='$(bin_PROGRAMS)'; test -n "$(bindir)" || list=; \
@@ -508,16 +516,19 @@ clean-binPROGRAMS:
 	list=`for p in $$list; do echo "$$p"; done | sed 's/$(EXEEXT)$$//'`; \
 	echo " rm -f" $$list; \
 	rm -f $$list
-iot_platform/device_framework_for_c-IoTPlatform.$(OBJEXT):  \
+iot_platform/gateway_framework_for_c-IoTPlatform.$(OBJEXT):  \
 	iot_platform/$(am__dirstamp) \
 	iot_platform/$(DEPDIR)/$(am__dirstamp)
-iot_platform/device_framework_for_c-AWSIoTPlatform.$(OBJEXT):  \
+iot_platform/gateway_framework_for_c-AWSIoTPlatform.$(OBJEXT):  \
+	iot_platform/$(am__dirstamp) \
+	iot_platform/$(DEPDIR)/$(am__dirstamp)
+iot_platform/gateway_framework_for_c-IoTPlatformFactory.$(OBJEXT):  \
 	iot_platform/$(am__dirstamp) \
 	iot_platform/$(DEPDIR)/$(am__dirstamp)
 
-device_framework_for_c$(EXEEXT): $(device_framework_for_c_OBJECTS) $(device_framework_for_c_DEPENDENCIES) $(EXTRA_device_framework_for_c_DEPENDENCIES) 
-	@rm -f device_framework_for_c$(EXEEXT)
-	$(AM_V_CCLD)$(device_framework_for_c_LINK) $(device_framework_for_c_OBJECTS) $(device_framework_for_c_LDADD) $(LIBS)
+gateway_framework_for_c$(EXEEXT): $(gateway_framework_for_c_OBJECTS) $(gateway_framework_for_c_DEPENDENCIES) $(EXTRA_gateway_framework_for_c_DEPENDENCIES) 
+	@rm -f gateway_framework_for_c$(EXEEXT)
+	$(AM_V_CCLD)$(gateway_framework_for_c_LINK) $(gateway_framework_for_c_OBJECTS) $(gateway_framework_for_c_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -527,12 +538,14 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/device_framework_for_c-main.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gateway_framework_for_c-main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@iot_platform/$(DEPDIR)/AWSIoTPlatform.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@iot_platform/$(DEPDIR)/IoTPlatform.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@iot_platform/$(DEPDIR)/device_framework_for_c-AWSIoTPlatform.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@iot_platform/$(DEPDIR)/device_framework_for_c-IoTPlatform.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@iot_platform/$(DEPDIR)/IoTPlatformFactory.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@iot_platform/$(DEPDIR)/gateway_framework_for_c-AWSIoTPlatform.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatform.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatformFactory.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -558,47 +571,61 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
-device_framework_for_c-main.o: main.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -MT device_framework_for_c-main.o -MD -MP -MF $(DEPDIR)/device_framework_for_c-main.Tpo -c -o device_framework_for_c-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/device_framework_for_c-main.Tpo $(DEPDIR)/device_framework_for_c-main.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='main.c' object='device_framework_for_c-main.o' libtool=no @AMDEPBACKSLASH@
+gateway_framework_for_c-main.o: main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -MT gateway_framework_for_c-main.o -MD -MP -MF $(DEPDIR)/gateway_framework_for_c-main.Tpo -c -o gateway_framework_for_c-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/gateway_framework_for_c-main.Tpo $(DEPDIR)/gateway_framework_for_c-main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='main.c' object='gateway_framework_for_c-main.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -c -o device_framework_for_c-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -c -o gateway_framework_for_c-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
 
-device_framework_for_c-main.obj: main.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -MT device_framework_for_c-main.obj -MD -MP -MF $(DEPDIR)/device_framework_for_c-main.Tpo -c -o device_framework_for_c-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/device_framework_for_c-main.Tpo $(DEPDIR)/device_framework_for_c-main.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='main.c' object='device_framework_for_c-main.obj' libtool=no @AMDEPBACKSLASH@
+gateway_framework_for_c-main.obj: main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -MT gateway_framework_for_c-main.obj -MD -MP -MF $(DEPDIR)/gateway_framework_for_c-main.Tpo -c -o gateway_framework_for_c-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/gateway_framework_for_c-main.Tpo $(DEPDIR)/gateway_framework_for_c-main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='main.c' object='gateway_framework_for_c-main.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -c -o device_framework_for_c-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -c -o gateway_framework_for_c-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
 
-iot_platform/device_framework_for_c-IoTPlatform.o: iot_platform/IoTPlatform.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -MT iot_platform/device_framework_for_c-IoTPlatform.o -MD -MP -MF iot_platform/$(DEPDIR)/device_framework_for_c-IoTPlatform.Tpo -c -o iot_platform/device_framework_for_c-IoTPlatform.o `test -f 'iot_platform/IoTPlatform.c' || echo '$(srcdir)/'`iot_platform/IoTPlatform.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) iot_platform/$(DEPDIR)/device_framework_for_c-IoTPlatform.Tpo iot_platform/$(DEPDIR)/device_framework_for_c-IoTPlatform.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='iot_platform/IoTPlatform.c' object='iot_platform/device_framework_for_c-IoTPlatform.o' libtool=no @AMDEPBACKSLASH@
+iot_platform/gateway_framework_for_c-IoTPlatform.o: iot_platform/IoTPlatform.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -MT iot_platform/gateway_framework_for_c-IoTPlatform.o -MD -MP -MF iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatform.Tpo -c -o iot_platform/gateway_framework_for_c-IoTPlatform.o `test -f 'iot_platform/IoTPlatform.c' || echo '$(srcdir)/'`iot_platform/IoTPlatform.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatform.Tpo iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatform.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='iot_platform/IoTPlatform.c' object='iot_platform/gateway_framework_for_c-IoTPlatform.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -c -o iot_platform/device_framework_for_c-IoTPlatform.o `test -f 'iot_platform/IoTPlatform.c' || echo '$(srcdir)/'`iot_platform/IoTPlatform.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -c -o iot_platform/gateway_framework_for_c-IoTPlatform.o `test -f 'iot_platform/IoTPlatform.c' || echo '$(srcdir)/'`iot_platform/IoTPlatform.c
 
-iot_platform/device_framework_for_c-IoTPlatform.obj: iot_platform/IoTPlatform.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -MT iot_platform/device_framework_for_c-IoTPlatform.obj -MD -MP -MF iot_platform/$(DEPDIR)/device_framework_for_c-IoTPlatform.Tpo -c -o iot_platform/device_framework_for_c-IoTPlatform.obj `if test -f 'iot_platform/IoTPlatform.c'; then $(CYGPATH_W) 'iot_platform/IoTPlatform.c'; else $(CYGPATH_W) '$(srcdir)/iot_platform/IoTPlatform.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) iot_platform/$(DEPDIR)/device_framework_for_c-IoTPlatform.Tpo iot_platform/$(DEPDIR)/device_framework_for_c-IoTPlatform.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='iot_platform/IoTPlatform.c' object='iot_platform/device_framework_for_c-IoTPlatform.obj' libtool=no @AMDEPBACKSLASH@
+iot_platform/gateway_framework_for_c-IoTPlatform.obj: iot_platform/IoTPlatform.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -MT iot_platform/gateway_framework_for_c-IoTPlatform.obj -MD -MP -MF iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatform.Tpo -c -o iot_platform/gateway_framework_for_c-IoTPlatform.obj `if test -f 'iot_platform/IoTPlatform.c'; then $(CYGPATH_W) 'iot_platform/IoTPlatform.c'; else $(CYGPATH_W) '$(srcdir)/iot_platform/IoTPlatform.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatform.Tpo iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatform.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='iot_platform/IoTPlatform.c' object='iot_platform/gateway_framework_for_c-IoTPlatform.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -c -o iot_platform/device_framework_for_c-IoTPlatform.obj `if test -f 'iot_platform/IoTPlatform.c'; then $(CYGPATH_W) 'iot_platform/IoTPlatform.c'; else $(CYGPATH_W) '$(srcdir)/iot_platform/IoTPlatform.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -c -o iot_platform/gateway_framework_for_c-IoTPlatform.obj `if test -f 'iot_platform/IoTPlatform.c'; then $(CYGPATH_W) 'iot_platform/IoTPlatform.c'; else $(CYGPATH_W) '$(srcdir)/iot_platform/IoTPlatform.c'; fi`
 
-iot_platform/device_framework_for_c-AWSIoTPlatform.o: iot_platform/AWSIoTPlatform.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -MT iot_platform/device_framework_for_c-AWSIoTPlatform.o -MD -MP -MF iot_platform/$(DEPDIR)/device_framework_for_c-AWSIoTPlatform.Tpo -c -o iot_platform/device_framework_for_c-AWSIoTPlatform.o `test -f 'iot_platform/AWSIoTPlatform.c' || echo '$(srcdir)/'`iot_platform/AWSIoTPlatform.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) iot_platform/$(DEPDIR)/device_framework_for_c-AWSIoTPlatform.Tpo iot_platform/$(DEPDIR)/device_framework_for_c-AWSIoTPlatform.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='iot_platform/AWSIoTPlatform.c' object='iot_platform/device_framework_for_c-AWSIoTPlatform.o' libtool=no @AMDEPBACKSLASH@
+iot_platform/gateway_framework_for_c-AWSIoTPlatform.o: iot_platform/AWSIoTPlatform.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -MT iot_platform/gateway_framework_for_c-AWSIoTPlatform.o -MD -MP -MF iot_platform/$(DEPDIR)/gateway_framework_for_c-AWSIoTPlatform.Tpo -c -o iot_platform/gateway_framework_for_c-AWSIoTPlatform.o `test -f 'iot_platform/AWSIoTPlatform.c' || echo '$(srcdir)/'`iot_platform/AWSIoTPlatform.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) iot_platform/$(DEPDIR)/gateway_framework_for_c-AWSIoTPlatform.Tpo iot_platform/$(DEPDIR)/gateway_framework_for_c-AWSIoTPlatform.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='iot_platform/AWSIoTPlatform.c' object='iot_platform/gateway_framework_for_c-AWSIoTPlatform.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -c -o iot_platform/device_framework_for_c-AWSIoTPlatform.o `test -f 'iot_platform/AWSIoTPlatform.c' || echo '$(srcdir)/'`iot_platform/AWSIoTPlatform.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -c -o iot_platform/gateway_framework_for_c-AWSIoTPlatform.o `test -f 'iot_platform/AWSIoTPlatform.c' || echo '$(srcdir)/'`iot_platform/AWSIoTPlatform.c
 
-iot_platform/device_framework_for_c-AWSIoTPlatform.obj: iot_platform/AWSIoTPlatform.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -MT iot_platform/device_framework_for_c-AWSIoTPlatform.obj -MD -MP -MF iot_platform/$(DEPDIR)/device_framework_for_c-AWSIoTPlatform.Tpo -c -o iot_platform/device_framework_for_c-AWSIoTPlatform.obj `if test -f 'iot_platform/AWSIoTPlatform.c'; then $(CYGPATH_W) 'iot_platform/AWSIoTPlatform.c'; else $(CYGPATH_W) '$(srcdir)/iot_platform/AWSIoTPlatform.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) iot_platform/$(DEPDIR)/device_framework_for_c-AWSIoTPlatform.Tpo iot_platform/$(DEPDIR)/device_framework_for_c-AWSIoTPlatform.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='iot_platform/AWSIoTPlatform.c' object='iot_platform/device_framework_for_c-AWSIoTPlatform.obj' libtool=no @AMDEPBACKSLASH@
+iot_platform/gateway_framework_for_c-AWSIoTPlatform.obj: iot_platform/AWSIoTPlatform.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -MT iot_platform/gateway_framework_for_c-AWSIoTPlatform.obj -MD -MP -MF iot_platform/$(DEPDIR)/gateway_framework_for_c-AWSIoTPlatform.Tpo -c -o iot_platform/gateway_framework_for_c-AWSIoTPlatform.obj `if test -f 'iot_platform/AWSIoTPlatform.c'; then $(CYGPATH_W) 'iot_platform/AWSIoTPlatform.c'; else $(CYGPATH_W) '$(srcdir)/iot_platform/AWSIoTPlatform.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) iot_platform/$(DEPDIR)/gateway_framework_for_c-AWSIoTPlatform.Tpo iot_platform/$(DEPDIR)/gateway_framework_for_c-AWSIoTPlatform.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='iot_platform/AWSIoTPlatform.c' object='iot_platform/gateway_framework_for_c-AWSIoTPlatform.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(device_framework_for_c_CFLAGS) $(CFLAGS) -c -o iot_platform/device_framework_for_c-AWSIoTPlatform.obj `if test -f 'iot_platform/AWSIoTPlatform.c'; then $(CYGPATH_W) 'iot_platform/AWSIoTPlatform.c'; else $(CYGPATH_W) '$(srcdir)/iot_platform/AWSIoTPlatform.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -c -o iot_platform/gateway_framework_for_c-AWSIoTPlatform.obj `if test -f 'iot_platform/AWSIoTPlatform.c'; then $(CYGPATH_W) 'iot_platform/AWSIoTPlatform.c'; else $(CYGPATH_W) '$(srcdir)/iot_platform/AWSIoTPlatform.c'; fi`
+
+iot_platform/gateway_framework_for_c-IoTPlatformFactory.o: iot_platform/IoTPlatformFactory.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -MT iot_platform/gateway_framework_for_c-IoTPlatformFactory.o -MD -MP -MF iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatformFactory.Tpo -c -o iot_platform/gateway_framework_for_c-IoTPlatformFactory.o `test -f 'iot_platform/IoTPlatformFactory.c' || echo '$(srcdir)/'`iot_platform/IoTPlatformFactory.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatformFactory.Tpo iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatformFactory.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='iot_platform/IoTPlatformFactory.c' object='iot_platform/gateway_framework_for_c-IoTPlatformFactory.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -c -o iot_platform/gateway_framework_for_c-IoTPlatformFactory.o `test -f 'iot_platform/IoTPlatformFactory.c' || echo '$(srcdir)/'`iot_platform/IoTPlatformFactory.c
+
+iot_platform/gateway_framework_for_c-IoTPlatformFactory.obj: iot_platform/IoTPlatformFactory.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -MT iot_platform/gateway_framework_for_c-IoTPlatformFactory.obj -MD -MP -MF iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatformFactory.Tpo -c -o iot_platform/gateway_framework_for_c-IoTPlatformFactory.obj `if test -f 'iot_platform/IoTPlatformFactory.c'; then $(CYGPATH_W) 'iot_platform/IoTPlatformFactory.c'; else $(CYGPATH_W) '$(srcdir)/iot_platform/IoTPlatformFactory.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatformFactory.Tpo iot_platform/$(DEPDIR)/gateway_framework_for_c-IoTPlatformFactory.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='iot_platform/IoTPlatformFactory.c' object='iot_platform/gateway_framework_for_c-IoTPlatformFactory.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gateway_framework_for_c_CFLAGS) $(CFLAGS) -c -o iot_platform/gateway_framework_for_c-IoTPlatformFactory.obj `if test -f 'iot_platform/IoTPlatformFactory.c'; then $(CYGPATH_W) 'iot_platform/IoTPlatformFactory.c'; else $(CYGPATH_W) '$(srcdir)/iot_platform/IoTPlatformFactory.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

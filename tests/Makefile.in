@@ -106,14 +106,14 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-am__EXEEXT_1 = device_framework_for_c_tests$(EXEEXT)
+am__EXEEXT_1 = gateway_framework_for_c_tests$(EXEEXT)
 PROGRAMS = $(noinst_PROGRAMS)
-am_device_framework_for_c_tests_OBJECTS =  \
-	device_framework_for_c_tests.$(OBJEXT)
-device_framework_for_c_tests_OBJECTS =  \
-	$(am_device_framework_for_c_tests_OBJECTS)
+am_gateway_framework_for_c_tests_OBJECTS =  \
+	gateway_framework_for_c_tests.$(OBJEXT)
+gateway_framework_for_c_tests_OBJECTS =  \
+	$(am_gateway_framework_for_c_tests_OBJECTS)
 am__DEPENDENCIES_1 =
-device_framework_for_c_tests_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+gateway_framework_for_c_tests_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(PRODUCTION_CODE_LIBS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -153,8 +153,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(device_framework_for_c_tests_SOURCES)
-DIST_SOURCES = $(device_framework_for_c_tests_SOURCES)
+SOURCES = $(gateway_framework_for_c_tests_SOURCES)
+DIST_SOURCES = $(gateway_framework_for_c_tests_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -508,7 +508,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 PRODUCTION_CODE_INCLUDES = -I$(top_srcdir)/src
-PRODUCTION_CODE_LIBS = $(top_builddir)/src/libdevice_framework_for_c.la
+PRODUCTION_CODE_LIBS = $(top_builddir)/src/libgateway_framework_for_c.la
 AM_CPPFLAGS = \
 	$(CUNIT_CFLAGS)\
 	$(PRODUCTION_CODE_INCLUDES)
@@ -518,9 +518,9 @@ AM_CFLAGS = -Werror\
 	-g
 
 AM_CXXFLAGS = $(AM_CFLAGS)
-TEST_PROGS = device_framework_for_c_tests
-device_framework_for_c_tests_SOURCES = device_framework_for_c_tests.c
-device_framework_for_c_tests_LDADD = $(CUNIT_LIBS)\
+TEST_PROGS = gateway_framework_for_c_tests
+gateway_framework_for_c_tests_SOURCES = gateway_framework_for_c_tests.c
+gateway_framework_for_c_tests_LDADD = $(CUNIT_LIBS)\
 	$(PRODUCTION_CODE_LIBS)
 
 all: all-am
@@ -575,9 +575,9 @@ clean-noinstPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-device_framework_for_c_tests$(EXEEXT): $(device_framework_for_c_tests_OBJECTS) $(device_framework_for_c_tests_DEPENDENCIES) $(EXTRA_device_framework_for_c_tests_DEPENDENCIES) 
-	@rm -f device_framework_for_c_tests$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(device_framework_for_c_tests_OBJECTS) $(device_framework_for_c_tests_LDADD) $(LIBS)
+gateway_framework_for_c_tests$(EXEEXT): $(gateway_framework_for_c_tests_OBJECTS) $(gateway_framework_for_c_tests_DEPENDENCIES) $(EXTRA_gateway_framework_for_c_tests_DEPENDENCIES) 
+	@rm -f gateway_framework_for_c_tests$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(gateway_framework_for_c_tests_OBJECTS) $(gateway_framework_for_c_tests_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -585,7 +585,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/device_framework_for_c_tests.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gateway_framework_for_c_tests.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -807,9 +807,9 @@ recheck: all $(check_PROGRAMS)
 	        am__force_recheck=am--force-recheck \
 	        TEST_LOGS="$$log_list"; \
 	exit $$?
-device_framework_for_c_tests.log: device_framework_for_c_tests$(EXEEXT)
-	@p='device_framework_for_c_tests$(EXEEXT)'; \
-	b='device_framework_for_c_tests'; \
+gateway_framework_for_c_tests.log: gateway_framework_for_c_tests$(EXEEXT)
+	@p='gateway_framework_for_c_tests$(EXEEXT)'; \
+	b='gateway_framework_for_c_tests'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
