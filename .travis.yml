@@ -1,0 +1,11 @@
+sudo: required
+
+language: cpp
+
+before_install: git clone https://github.com/TangCheng/cunit.git && cd cunit && autoreconf -if && ./configure && make && sudo make install && cd -
+
+script:
+    - autoreconf -if
+    - ./configure --enable-tests
+    - make
+    - make check
